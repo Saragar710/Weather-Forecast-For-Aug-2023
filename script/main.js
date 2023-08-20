@@ -20,7 +20,7 @@ fetch(queryURL)
 //     for(var i = 0; < data.length; i++){
 //        var listItem = document. 
 //     }
-})
+ })
 }
  
 
@@ -31,7 +31,7 @@ formButton.addEventListener("click", function() {
 })
 
 function getApi(city){ 
-    var queryURL = "https://api.openweathermap.org/data/2.5/forecast/hourly?q=" + city + "&appid=" + APIKey;
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast/hourly?q=" + city + state-code + "&appid=" + APIKey;
     console.log(queryURL);
 }
 
@@ -50,4 +50,8 @@ fetch(queryURL)
 
     })
 })
+
+function getApi(city){
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast/hourly?q="lat={lat}&lon={lon}&appid={APIkey}&units=imperial
+}
 
