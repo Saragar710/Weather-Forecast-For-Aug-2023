@@ -2,26 +2,58 @@
     margin:0;
     padding:0;
     box-sizing: border-box;
+    font-family:'Bricolage Grotesque', sans-serif;
 }
-h2{
+/* h2{
     float:left;
 
-}
-.li{
-    font-size: 50px;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+} */
+body {
     float:left;
-    background-color:blue;
+    background-color: lightblue;
     color: black;
 
 }
-/* .li :hover{
-    background-color: pink;
-
-} */
-.btn{
-   
-    border: none;
+h1 {
     color: white;
-    padding: 15px,
+    padding: 18px 0;
+    text-align: center;
+    font-size: 1.75rem;
+
+}
+.container {
+    display: flex;
+    gap: 35px;
+    padding: 30px;
+
+}
+.weather-info {
+    width:500px;
+    padding: 0 15px;
+    margin: 10px 0 23px 0;
+    border-radius: 4px;
+    border: 1px solid;
+}
+.weather-info info {
+    width: 100%;
+    padding: 0 15px;
+    cursor: pointer;
+    font-size: 15px;
+    border-radius: 4px;
+    border: none;
+    background: light grey;
+    
+}
+.weather-data {
+    width: 100%
+}
+.btn{
+  
+    border: 25px;
+    color: white;
+    padding: 20px;
+    margin-top:100px;
+    margin-bottom: 100px;
+    justify-content: space-around;
+    
 }

@@ -52,6 +52,6 @@ fetch(queryURL)
 })
 
 function getApi(city){
-    var queryURL = "https://api.openweathermap.org/data/2.5/forecast/hourly?q="lat={lat}&lon={lon}&appid={APIkey}&units=imperial
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q="lat={lat}&lon={lon}&appid={APIkey}&units=imperial
 }
 
