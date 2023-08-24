@@ -2,7 +2,9 @@ var APIKey = "7e2c9dd2ce3aec612d1cb1d25cf47214";
 
 var cityInput = document.getElementById("city-name");
 var formButton = document.querySelector("form button");
-
+var createWeatherCard = (weatherItem) => {
+    return ``;
+}
 
 
 function getApi(city){
@@ -17,9 +19,9 @@ fetch(queryURL)
 })
 .then(function (data) {
     console.log(data);
-//     for(var i = 0; < data.length; i++){
-//        var listItem = document. 
-//     }
+    // for(var i = 0; < data.length; i++){
+    //    var listItem = document. 
+    // }
  })
 }
  
@@ -33,7 +35,7 @@ formButton.addEventListener("click", function() {
 function getApi(city){ 
     var queryURL = "https://api.openweathermap.org/data/2.5/forecast/hourly?q=" + city + state-code + "&appid=" + APIKey;
     console.log(queryURL);
-}
+
 
 
 fetch(queryURL)
@@ -50,8 +52,31 @@ fetch(queryURL)
 
     })
 })
-
-function getApi(city){
-    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q="lat={lat}&lon={lon}&appid={APIkey}&units=imperial
 }
+function getApi(city){
+    var queryURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIkey}&units=imperial`;
+
+    fetch(queryURL)  
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+     
+    })
+    var uniqueForecastDate = [];
+    var fiveDayForecast = data.list.filter(forecast => {
+        var forecastDate = new Date(forecast.dt_text).getDate();
+        if(!uniqueForecastDate.includes(forecastDate)) {
+            return uniqueForecastDate.push(forecast);
+        }
+    });
+    console.log(fiveDayForecast);
+    fiveDayForecast.fo;rEach(weatherItem => {
+        createWeatherCard(weatherItem);
+    });
+
+ }   .catch(() => {
+    alert("Error")
+});
+
 

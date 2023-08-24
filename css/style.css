@@ -9,9 +9,9 @@
 
 } */
 body {
-    float:left;
+    /* float:left; */
     background-color: lightblue;
-    color: black;
+    /* color: black; */
 
 }
 h1 {
@@ -47,7 +47,7 @@ h1 {
 .weather-data {
     width: 100%;
 }
-.weather-info .search button {
+.weather-info .formButton {
     padding: 20px;
     width: 100%;
 }
@@ -71,6 +71,7 @@ h1 {
   border-radius: 5px;
   padding: 20px 70px 20px 20px;
   justify-content: space-between;
+  display: flex;
 
 }
 .current-weather h3 {
@@ -100,15 +101,16 @@ h1 {
 }
 .weather-cards {
     display: flex;
-    gap: 30px;
+   
+    gap: 22px;
 }
 .weather-cards .card {
-    /* list-style-type: square; */
+    /* list-style: none; */
     background:  grey;
     color: white;
-    padding: 18px 16px;
+    padding: 18px 15px ;
     border-radius: 5px;
-    width: 25%;
+    width: 10%;
 }
 .weather-card .card img {
     max-width: 70px;
