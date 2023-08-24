@@ -77,23 +77,28 @@ fetch(queryURL)
     })
 })
 }
-function getApi(city){
+function getApi(city, lat, lon, APIKey){
     var queryURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIkey}&units=imperial`;
 
     fetch(queryURL)  
     .then(function (response) {
         return response.json();
     })
-    .then(function (data) {
-     
-    })
+    .then(function (data) {  
     var uniqueForecastDate = [];
     var fiveDayForecast = data.list.filter(forecast => {
         var forecastDate = new Date(forecast.dt_text).getDate();
         if(!uniqueForecastDate.includes(forecastDate)) {
-            return uniqueForecastDate.push(forecast);
+         uniqueForecastDate.push(forecast);
+         return true;
         }
-    })
+        return false;
+    });
+    // .catch(function(error) {
+    //     console.log(error);
+    // });
+
+     })
 
 
     cityInput.value = "";
@@ -111,11 +116,9 @@ function getApi(city){
         }// createWeatherCard(weatherItem);
     })
 
- }; 
+ }
 
-  .catch(() => {
-    alert("Error");
-});
-searchButton.addEventListener("click", getSelectedCity);
-
-
+//   .catch(() => {
+//     alert("Error");
+// });
+// formButton.addEventListener("click", getSelectedCity);
