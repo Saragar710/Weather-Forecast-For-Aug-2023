@@ -104,16 +104,16 @@ h1 {
 }
 .weather-cards {
     display: flex;
-   
-    gap: 22px;
+     gap: 15px;
 }
 .weather-cards .card {
     /* list-style: none; */
     background:  grey;
     color: white;
-    padding: 18px 15px ;
+    padding: 15px 15px ;
     border-radius: 5px;
-    width: 10%;
+    width: 5%;
+    /* flex-direction: column; */
 }
 .weather-card .card img {
     max-width: 70px;
