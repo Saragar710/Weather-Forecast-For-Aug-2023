@@ -63,7 +63,7 @@ var lon = "";
 
 function getFiveDayWeather( lat, lon){
     var queryURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIKey}&units=imperial`;
-    // console.log(data.lon, data.lat)
+    console.log(data.lon, data.lat)
     fetch(queryURL)  
     .then(function (response) {
         return response.json();
@@ -88,7 +88,7 @@ function getFiveDayWeather( lat, lon){
         currentWeatherDiv.innerHTML = "";
         weatherCardsDiv.innerHTML = "";
     
-        console.log(fiveDayForecast);
+        console.log(fiveDayForecast.lat.lon);
         fiveDayForecast.forEach((weatherItem, index) => {
             // if(index === 0) {
             // weatherCardsDiv.insertAdjacentHTML("beforeend", createWeatherCard(cityName, weatherItem, index));
