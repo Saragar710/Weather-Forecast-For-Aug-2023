@@ -80,29 +80,26 @@ function getFiveDayWeather( lat, lon){
     // });
 
      })
-     .then(function (fiveDayForecast){
+    .then(function (fiveDayForecast){
         cityInput.value = "";
         currentWeatherDiv.innerHTML = "";
         weatherCardsDiv.innerHTML = "";
     
         console.log(fiveDayForecast);
         fiveDayForecast.forEach((weatherItem, index) => {
-            if(index === 0) {
+            // if(index === 0) {
+            // weatherCardsDiv.insertAdjacentHTML("beforeend", createWeatherCard(cityName, weatherItem, index));
+    
+            // } else{
+    
             weatherCardsDiv.insertAdjacentHTML("beforeend", createWeatherCard(cityName, weatherItem, index));
-    
-            } else{
-    
-            weatherCardsDiv.insertAdjacentHTML("beforeend", createWeatherCard(cityName, weatherItem, index));
-            }// createWeatherCard(weatherItem);
-
-     })
+            //}
+            
+     });
 
     
-    })
+    });
 
- }
-
-//   .catch(() => {
-//     alert("Error");
-// });
-// formButton.addEventListener("click", getSelectedCity);
+ };
+ localStorage.setItem("fiveDayForecast", weatherData);
+ localStorage.getItem("fiveDayForecast");
