@@ -6,7 +6,7 @@ var formButton = document.querySelector("form button");
 var currentWeatherDiv = document.querySelector(".current-weather");
 var weatherCardsDiv = document.querySelector(".weather-cards");
 
-var createWeatherCard = (CityName, weatherItem, index) => {
+var createWeatherCard = (cityName, weatherItem, index) => {
     if(index === 0) {
         return `   <div class="details">
         <h3>${cityName}(${weatherItem.dt_txt.split(" ")[0]})</h3>
@@ -44,6 +44,7 @@ fetch(queryURL)
 })
 .then(function (data) {
     console.log(data);
+    console.log(lat, lon)
 
    
 })
@@ -57,10 +58,12 @@ formButton.addEventListener("click", function() {
  getApi(selectedCity)
 })
 
+var lat = "";
+var lon = "";
 
 function getFiveDayWeather( lat, lon){
     var queryURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIKey}&units=imperial`;
-
+    // console.log(data.lon, data.lat)
     fetch(queryURL)  
     .then(function (response) {
         return response.json();
@@ -101,5 +104,5 @@ function getFiveDayWeather( lat, lon){
     });
 
  };
- localStorage.setItem("fiveDayForecast", weatherData);
- localStorage.getItem("fiveDayForecast");
+ localStorage.setItem("forecast", forecastData);
+ localStorage.getItem("forecast");
