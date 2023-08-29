@@ -78,16 +78,55 @@ formButton.addEventListener("click", function () {
            //data.city.name,data.list[0],
             currentDay(data.city.name,data.list[0]);
 
-        //    forecastDays(data.list)
+           forecastDays(data.list)
+
         });
 
 };
+function forecastDays(weather) {
+    var forecastContainer = document.getElementById("forecastCard")
+    for (let i = 0; i < weather.length; i++) {
+        const weather = weather[i];
+        
+    }
+}
+
 function currentDay(city, weather){
     console.log(city)
     console.log(weather)
+    var todayContainer = document.getElementById("today")
     //temp, wind, humidity, icon
     //weather.main.temp, weather.main.humidity, weather.wind.speed
+ //pulling data creating variables
+ var temp = weather.main.temp;
+ var humidity = weather.main.humidity;
+ var wind = weather.wind.speed;
 
+ //creating card
+ var card = document.createElement("div")
+ card.setAttribute("class", "card")
+ //making card body
+
+ var cardbody = document.createElement("div")
+ cardbody.setAttribute("class", "card-body")
+ card.append(cardbody)
+ // title 
+ var title =  document.createElement("h3")
+ title.setAttribute("class",  "h3 card-title")
+ title.textContent = city;
+
+ //append cardbody and title
+ var tempEl = document.createElement("p")
+ var humidityEl = document.createElement("p")
+ var windEl = document.createElement("p")
+ tempEl.setAttribute("class", "card-text")
+ humidityEl.setAttribute("class", "card-text")
+ windEl.setAttribute("class", "card-text")
+tempEl.textContent = `Temp: ${temp}`
+humidityEl.textContent = `Humidity: ${humidity}`
+windEl.textContent = `Wind: ${wind}`
+cardbody.append(title, tempEl, windEl, humidityEl)
+ todayContainer.append(card)
 }
-localStorage.setItem("forecast", forecastData);
-localStorage.getItem("forecast");
+// localStorage.setItem("forecast", forecastData);
+// localStorage.getItem("forecast");

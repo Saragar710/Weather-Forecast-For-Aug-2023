@@ -67,7 +67,7 @@ h1 {
 }
 .current-weather {
   background-color: rgb(53, 53, 228);
-  color: white;
+  color: black;
   border-radius: 5px;
   padding: 20px 70px 20px 20px;
   justify-content: space-between;
