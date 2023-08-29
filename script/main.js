@@ -7,7 +7,7 @@ var currentWeatherDiv = document.querySelector(".current-weather");
 var weatherCardsDiv = document.querySelector(".weather-cards");
 
 var createWeatherCard = (cityName, weatherItem, index) => {
-    if(index === 0) {
+    if (index === 0) {
         return `   <div class="details">
         <h3>${cityName}(${weatherItem.dt_txt.split(" ")[0]})</h3>
         <h4>Temperature:${weatherItem.main.temp}</h4>
@@ -21,7 +21,7 @@ var createWeatherCard = (cityName, weatherItem, index) => {
 
 
     } else {
-    return `<li class="weather-cards">
+        return `<li class="weather-cards">
            <h3>(${weatherItem.dt_txt.split(" ")[0]})</h3>
            <img src="https://openweathermap.org/img/wn/${weatherItem.weather[0].icon}2x.png" alt="weather-icon">"
            <h4>Temperature: ${weatherItem.main.temp}</h4>
@@ -32,77 +32,84 @@ var createWeatherCard = (cityName, weatherItem, index) => {
 }
 
 
-function getApi(city){
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
-    console.log(queryURL);
+function getApi(city) {
+    var queryUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${APIKey}
+    `;
+    //var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
+    console.log(queryUrl);
 
 
 
-fetch(queryURL)
-.then(function (response){
-    return response.json();
-})
-.then(function (data) {
-    console.log(data);
-    console.log(lat, lon)
+    fetch(queryUrl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data[0]);
+          getWeather(data[0])
 
-   
-})
+
+        })
 }
- 
 
-formButton.addEventListener("click", function() {
+
+formButton.addEventListener("click", function () {
     event.preventDefault()
- var selectedCity = cityInput.value;
- console.log(selectedCity)
- getApi(selectedCity)
+    var selectedCity = cityInput.value;
+    console.log(selectedCity)
+    getApi(selectedCity)
 })
 
 var lat = "";
 var lon = "";
 
-function getFiveDayWeather( lat, lon){
-    var queryURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIKey}&units=imperial`;
+//function getFiveDayWeather(lat, lon) {
+    function getWeather(location) {
+        console.log(location)
+        var {lat,lon}= location
+        console.log(lat,lon)
+        var city = location.name
+        var queryUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIKey}&units=imperial`;
     console.log(data.lon, data.lat)
-    fetch(queryURL)  
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {  
-    var uniqueForecastDate = [];
-    return  data.list.filter(forecast => {
-        var forecastDate = new Date(forecast.dt_text).getDate();
-        if(!uniqueForecastDate.includes(forecastDate)) {
-         uniqueForecastDate.push(forecast);
-         return true;
-        }
-        return false;
-    });
-    // .catch(function(error) {
-    //     console.log(error);
-    // });
+    fetch(queryUrl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            var uniqueForecastDate = [];
+            return data.list.filter(forecast => {
+                var forecastDate = new Date(forecast.dt_text).getDate();
+                if (!uniqueForecastDate.includes(forecastDate)) {
+                    uniqueForecastDate.push(forecast);
+                    return true;
+                }
+                return false;
+            });
+            // .catch(function(error) {
+            //     console.log(error);
+            // });
 
-     })
-    .then(function (fiveDayForecast){
-        cityInput.value = "";
-        currentWeatherDiv.innerHTML = "";
-        weatherCardsDiv.innerHTML = "";
-    
-        console.log(fiveDayForecast.lat.lon);
-        fiveDayForecast.forEach((weatherItem, index) => {
-            // if(index === 0) {
-            // weatherCardsDiv.insertAdjacentHTML("beforeend", createWeatherCard(cityName, weatherItem, index));
-    
-            // } else{
-    
-            weatherCardsDiv.insertAdjacentHTML("beforeend", createWeatherCard(cityName, weatherItem, index));
-            //}
-            
-     });
+        })
+        .then(function (fiveDayForecast) {
+            cityInput.value = "";
+            currentWeatherDiv.innerHTML = "";
+            weatherCardsDiv.innerHTML = "";
 
-    
-    });
+            console.log(fiveDayForecast.lat.lon);
+            fiveDayForecast.forEach((weatherItem, index) => {
+                // if(index === 0) {
+                // weatherCardsDiv.insertAdjacentHTML("beforeend", createWeatherCard(cityName, weatherItem, index));
 
- };
- localStorage.setItem("forecast", forecastData);
- localStorage.getItem("forecast");
+                // } else{
+
+                weatherCardsDiv.insertAdjacentHTML("beforeend", createWeatherCard(cityName, weatherItem, index));
+                //}
+
+            });
+
+
+        });
+
+};
+localStorage.setItem("forecast", forecastData);
+localStorage.getItem("forecast");
