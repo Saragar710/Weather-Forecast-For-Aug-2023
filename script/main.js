@@ -60,8 +60,7 @@ formButton.addEventListener("click", function () {
     getApi(selectedCity)
 })
 
-var lat = "";
-var lon = "";
+
 
 //function getFiveDayWeather(lat, lon) {
     function getWeather(location) {
@@ -70,46 +69,25 @@ var lon = "";
         console.log(lat,lon)
         var city = location.name
         var queryUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${APIKey}&units=imperial`;
-    console.log(data.lon, data.lat)
     fetch(queryUrl)
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
-            var uniqueForecastDate = [];
-            return data.list.filter(forecast => {
-                var forecastDate = new Date(forecast.dt_text).getDate();
-                if (!uniqueForecastDate.includes(forecastDate)) {
-                    uniqueForecastDate.push(forecast);
-                    return true;
-                }
-                return false;
-            });
-            // .catch(function(error) {
-            //     console.log(error);
-            // });
+           console.log(data)
+           //data.city.name,data.list[0],
+            currentDay(data.city.name,data.list[0]);
 
-        })
-        .then(function (fiveDayForecast) {
-            cityInput.value = "";
-            currentWeatherDiv.innerHTML = "";
-            weatherCardsDiv.innerHTML = "";
-
-            console.log(fiveDayForecast.lat.lon);
-            fiveDayForecast.forEach((weatherItem, index) => {
-                // if(index === 0) {
-                // weatherCardsDiv.insertAdjacentHTML("beforeend", createWeatherCard(cityName, weatherItem, index));
-
-                // } else{
-
-                weatherCardsDiv.insertAdjacentHTML("beforeend", createWeatherCard(cityName, weatherItem, index));
-                //}
-
-            });
-
-
+        //    forecastDays(data.list)
         });
 
 };
+function currentDay(city, weather){
+    console.log(city)
+    console.log(weather)
+    //temp, wind, humidity, icon
+    //weather.main.temp, weather.main.humidity, weather.wind.speed
+
+}
 localStorage.setItem("forecast", forecastData);
 localStorage.getItem("forecast");
