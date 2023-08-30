@@ -114,6 +114,10 @@ h1 {
     justify-content: space-around;
 
 }
+/* .altIcon {
+    min-height: 50px;
+    max-height: 50px;
+} */
 /* .weather-cards {
     display: flex;
      gap: 15px;

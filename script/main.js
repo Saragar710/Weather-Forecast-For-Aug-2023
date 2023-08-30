@@ -5,7 +5,7 @@ var cityInput = document.getElementById("city-name");
 var formButton = document.querySelector("form button");
 var currentWeatherDiv = document.querySelector(".current-weather");
 var weatherCardsDiv = document.querySelector(".weather-cards");
-var imgEl = document.createElement("img")
+
 
 // var createWeatherCard = (cityName, weatherItem, index) => {
 //     if (index === 0) {
@@ -132,31 +132,45 @@ function currentDay(city, weather){
  var temp = weather.main.temp;
  var humidity = weather.main.humidity;
  var wind = weather.wind.speed;
+ var icon = `https:://openweathermap.org/img/w/${weather.weather[0].icon}.png`;
+ var iconAlt = weather.weather[0].description
 
  //creating card
  var card = document.createElement("div")
  card.setAttribute("class", "card")
- //making card body
 
+ //making card body
  var cardbody = document.createElement("div")
  cardbody.setAttribute("class", "card-body")
  card.append(cardbody)
+
  // title 
  var title =  document.createElement("h3")
  title.setAttribute("class",  "h3 card-title")
  title.textContent = city;
 
- //append cardbody and title
+ //create elements to apply data to it, goes to card body
  var tempEl = document.createElement("p")
  var humidityEl = document.createElement("p")
  var windEl = document.createElement("p")
+ var imgIconEl = document.createElement("img")
+
+
+//setattributes of class, src and alt added to the element variabnles
  tempEl.setAttribute("class", "card-text")
  humidityEl.setAttribute("class", "card-text")
  windEl.setAttribute("class", "card-text")
+ imgIconEl.setAttribute("src", icon)
+ imgIconEl.setAttribute("alt", iconAlt)
+ imgIconEl.setAttribute("class", "altIcon")
+ //textcontent added to the element variables
 tempEl.textContent = `Temp: ${temp}`
 humidityEl.textContent = `Humidity: ${humidity}`
 windEl.textContent = `Wind: ${wind}`
-cardbody.append(title, tempEl, windEl, humidityEl)
+
+
+
+cardbody.append(title, imgIconEl, tempEl, windEl, humidityEl)
  todayContainer.append(card)
 }
 // localStorage.setItem("forecast", forecastData);
