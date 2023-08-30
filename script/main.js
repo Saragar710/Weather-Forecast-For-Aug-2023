@@ -23,7 +23,7 @@ function getApi(city) {
             console.log(data[0]);
           getWeather(data[0])
        
-           city("city");
+           city(data);
         })
 }  
 
@@ -37,12 +37,28 @@ function getCityData(city) {
      })
      .then(function (cityData){
         console.log(cityData[0]);
-        getCityData([0])
-
+       
+        localStorage.setItem("cityData", JSON.stringify(cityData))
      })
+     
+        getCityData();
+        localStorage.getItem("cityData")
+        // var cityDataArray = JSON.parse(cityData)
+        if(cityDataArray = JSON.parse(cityData)) {
+           console.log("Everything is good.")
         }
-
-localStorage.setItem("city", JSON.stringify(Data))
+        cityDataArray();
+function getWeatherData(){
+    var weatherData = cityInput.value;
+    var buttonEl = document.getElementById("btn-info")
+    buttonEl.setAttribute("class", "btn-history", "data-search", "array[i]")
+    buttonEl.append(search, Salem, Riverside, Omaha, Prescott-Valley);
+} 
+buttonEl.addEventListener("click", function () {
+    event.preventDefault()
+    console.log(weatherData)
+})
+    }
 
 
 
