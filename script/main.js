@@ -5,31 +5,32 @@ var cityInput = document.getElementById("city-name");
 var formButton = document.querySelector("form button");
 var currentWeatherDiv = document.querySelector(".current-weather");
 var weatherCardsDiv = document.querySelector(".weather-cards");
+var imgEl = document.createElement("img")
 
-var createWeatherCard = (cityName, weatherItem, index) => {
-    if (index === 0) {
-        return `   <div class="details">
-        <h3>${cityName}(${weatherItem.dt_txt.split(" ")[0]})</h3>
-        <h4>Temperature:${weatherItem.main.temp}</h4>
-        <h4>Wind Speed: ${weatherItem.wind.speed}mph</h4>
-        <h4>Humidity:${weatherItem.main.humidity} %</h4>
-      </div>
-      <div class="icon">
-      <img src="https://openweathermap.org/img/wn/${weatherItem.weather[0].icon} /@2x.png" alt="weather-icon">
-      <h4>${weatherItem.weather[0].description}</h4>
-    </div>`;
+// var createWeatherCard = (cityName, weatherItem, index) => {
+//     if (index === 0) {
+//         return `   <div class="details">
+//         <h3>${cityName}(${weatherItem.dt_txt.split(" ")[0]})</h3>
+//         <h4>Temperature:${weatherItem.main.temp}</h4>
+//         <h4>Wind Speed: ${weatherItem.wind.speed}mph</h4>
+//         <h4>Humidity:${weatherItem.main.humidity} %</h4>
+//       </div>
+//       <div class="icon">
+//       <img src="https://openweathermap.org/img/wn/${weatherItem.weather[0].icon} /@2x.png" alt="weather-icon">
+//       <h4>${weatherItem.weather[0].description}</h4>
+//     </div>`;
 
 
-    } else {
-        return `<li class="weather-cards">
-           <h3>(${weatherItem.dt_txt.split(" ")[0]})</h3>
-           <img src="https://openweathermap.org/img/wn/${weatherItem.weather[0].icon}2x.png" alt="weather-icon">"
-           <h4>Temperature: ${weatherItem.main.temp}</h4>
-           <h4>Wind Speed: ${weatherItem.wind.speed}mph</h4>
-           <h4>Humidity: ${weatherItem.main.humidity}%</h4>
-    </li>`;
-    }
-}
+//     } else {
+//         return `<li class="weather-cards">
+//            <h3>(${weatherItem.dt_txt.split(" ")[0]})</h3>
+//            <img src="https://openweathermap.org/img/wn/${weatherItem.weather[0].icon}2x.png" alt="weather-icon">"
+//            <h4>Temperature: ${weatherItem.main.temp}</h4>
+//            <h4>Wind Speed: ${weatherItem.wind.speed}mph</h4>
+//            <h4>Humidity: ${weatherItem.main.humidity}%</h4>
+//     </li>`;
+//     }
+// }
 
 
 function getApi(city) {
@@ -100,8 +101,8 @@ function forecastDays(weather) {
  cardbody.setAttribute("class", "card-body")
  card.append(cardbody)
  // title 
- var title =  document.createElement("h3")
- title.setAttribute("class",  "h3 card-title")
+ var title =  document.createElement("h2")
+ title.setAttribute("class",  "h2 card-title")
  title.textContent = city;
 
  //append cardbody and title
@@ -115,8 +116,8 @@ tempEl.textContent = `Temp: ${temp}`
 humidityEl.textContent = `Humidity: ${humidity}`
 windEl.textContent = `Wind: ${wind}`
 cardbody.append(title, tempEl, windEl, humidityEl)
- todayContainer.append(card)
-}
+forecastContainer.append(card)
+ }
         
     }
 

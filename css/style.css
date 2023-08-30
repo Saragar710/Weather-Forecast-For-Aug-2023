@@ -45,7 +45,8 @@ h1 {
     
 }
 .weather-data {
-    width: 100%;
+    /* width: 100%; */
+    width: 45%;
 }
 .weather-info .formButton {
     padding: 20px;
@@ -102,20 +103,20 @@ h1 {
     /* justify-content: space-evenly; */
 
 }
-.weather-cards {
+/* .weather-cards {
     display: flex;
      gap: 15px;
 }
 .weather-cards .card {
     /* list-style: none; */
-    background:  grey;
+    /* background:  grey;
     color: white;
     padding: 15px 15px ;
     border-radius: 5px;
     width: 5%;
     /* flex-direction: column; */
-}
+/* }
 .weather-card .card img {
     max-width: 70px;
     margin: 5px 0 -12px 0;
-}
+} */ 
