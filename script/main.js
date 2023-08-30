@@ -22,10 +22,28 @@ function getApi(city) {
         .then(function (data) {
             console.log(data[0]);
           getWeather(data[0])
-
-
+       
+           city("city");
         })
-}
+}  
+
+var cityDataArray =[] 
+function getCityData(city) {
+    console.log(city);
+    
+    fetch(city)
+     .then(function (response){
+        return response.json();
+     })
+     .then(function (cityData){
+        console.log(cityData[0]);
+        getCityData([0])
+
+     })
+        }
+
+localStorage.setItem("city", JSON.stringify(Data))
+
 
 
 formButton.addEventListener("click", function () {
