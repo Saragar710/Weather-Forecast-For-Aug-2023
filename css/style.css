@@ -96,11 +96,22 @@ h1 {
 }
 .days-forecast {
     display: flex;
+    /* flex-direction: column;
+    justify-content: space-between; */
 }
 .days-forecast h2 {
     font-size: 20px;
     margin: 20px 0;
     /* justify-content: space-evenly; */
+
+}
+#forecastCard {
+    width: 25%;
+    margin: 10px 0 10px 0;
+    padding: 10px 10px;
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: space-around;
 
 }
 /* .weather-cards {
