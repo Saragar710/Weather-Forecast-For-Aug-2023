@@ -93,13 +93,13 @@ formButton.addEventListener("click", function () {
 
 };
 function forecastDays(weather) {
-    var startDt = daysjs().add(1, 'day').startOf('day').unix();
+    var startDt = dayjs().add(1, 'day').startOf('day').unix();
     var endDt = dayjs().add(6, 'day').startOf('day').unix();
 
     var forecastContainer = document.getElementById("forecastCard")
     for (let i = 0; i < weather.length; i++) {
         //First filters through all of the data and returns only data that falls between ond day after the current data and up to 5 days later.
-        if(weather[i].dt_text.slice(11,13) == "12"){
+        if(weather[i].dt_text.slice(11, 13) == "12"){
          const forecast = weather[i];
 
          //pulling data creating variables
@@ -148,7 +148,7 @@ forecastContainer.append(card)
 }
 
 function currentDay(city, weather){
-    var date = dayjs().format('M/D/YYY');
+    var date = dayjs().format('M/D/YYYY');
     console.log(city)
     console.log(weather)
 

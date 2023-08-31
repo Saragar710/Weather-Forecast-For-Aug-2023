@@ -71,7 +71,7 @@ h1 {
   color: black;
   border-radius: 5px;
   padding: 20px 70px 20px 20px;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   display: flex;
 
 }
@@ -97,41 +97,12 @@ h1 {
 /* .days-forecast {
     display: flex;
     /* flex-direction: column;
-    justify-content: space-between; */
+    justify-content: space-between;
 } */
-.days-forecast h2 {
+
+/* .days-forecast h2 {
     font-size: 20px;
     margin: 20px 0;
     /* justify-content: space-evenly; */
 
-}
-/* #forecastCard {
-    width: 25%;
-    margin: 10px 0 10px 0;
-    padding: 10px 10px;
-    /* display: flex; */
-    flex-direction: column;
-    justify-content: space-around;
-
 } */
-/* .altIcon {
-    min-height: 50px;
-    max-height: 50px;
-} */
-/* .weather-cards {
-    display: flex;
-     gap: 15px;
-}
-.weather-cards .card {
-    /* list-style: none; */
-    /* background:  grey;
-    color: white;
-    padding: 15px 15px ;
-    border-radius: 5px;
-    width: 5%;
-    /* flex-direction: column; */
-/* }
-.weather-card .card img {
-    max-width: 70px;
-    margin: 5px 0 -12px 0;
-} */ 

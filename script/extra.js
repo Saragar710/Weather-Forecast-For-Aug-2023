@@ -59,3 +59,30 @@
 //     </li>`;
 //     }
 // }
+//css
+#forecastCard {
+    width: 25%;
+    margin: 10px 0 10px 0;
+    padding: 10px 10px;
+    /* display: flex; */
+    /* flex-direction: column;
+    justify-content: space-around;
+}
+
+/* .altIcon {
+    min-height: 50px;
+    max-height: 50px;
+} */
+/* .weather-cards {
+    display: flex;
+     gap: 15px;
+}
+.weather-cards .card {
+    /* list-style: none; */
+    /* background:  grey;
+    color: white;
+    padding: 15px 15px ;
+    border-radius: 5px;
+    width: 5%;
+    /* flex-direction: column; */
+/* }
