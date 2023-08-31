@@ -47,16 +47,22 @@ function getCityData(city) {
             console.log("Everything is good.");
          }
      });
-    }    
+    }  
+      var cityData = document.getElementById("data-search")
+    for (let i = 0; i < cityData.length; i++) {
+        const localStorage.getitem = cityData[i];
+        
+    }
        
 function getWeatherData(){
    var weatherData = cityInput.value
-    var buttonEl = document.createElement("div");
+    var buttonEl = document.createElement("buttonEl");
+    buttonEl.setAttribute("type","button")
     buttonEl.setAttribute("class", "btn-history");
     buttonEl.setAttribute("data-search", "array[i]");
     buttonEl.append(div);
 
-buttonEl.addEventListener("click", function () {
+buttonEl.addEventListener("click", function (div) {
     event.preventDefault()
     console.log(weatherData)
 });
@@ -64,13 +70,13 @@ buttonEl.addEventListener("click", function () {
 
 getCityData();
 
- dataSearchBtn.addEventListener("click",  function()) {
-    if(!event.target.matches('.btn-history'))
-    return 
-btn = event.target
-var city = btn.getAttribute('data-search')
-}
- geoApi();
+//  dataSearchBtn.addEventListener("click",  function()){
+//     if(!event.target.matches('.btn-history'))
+//     return 
+// btn = event.target
+// var city = btn.getAttribute('data-search')
+// }
+//  geoApi();
 
 formButton.addEventListener("click", function () {
     event.preventDefault()
@@ -209,11 +215,6 @@ windEl.textContent = `Wind: ${wind}`
 cardbody.append(title, imgIconEl,tempEl, windEl, humidityEl)
 todayContainer.append(card)
  
-     
-    
-
-
-
     //temp, wind, humidity, icon
     //weather.main.temp, weather.main.humidity, weather.wind.speed
  //pulling data creating variables
