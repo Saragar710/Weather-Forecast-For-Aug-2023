@@ -64,6 +64,14 @@ buttonEl.addEventListener("click", function () {
 
 getCityData();
 
+ dataSearchBtn.addEventListener("click",  function()) {
+    if(!event.target.matches('.btn-history'))
+    return 
+btn = event.target
+var city = btn.getAttribute('data-search')
+}
+ geoApi();
+
 formButton.addEventListener("click", function () {
     event.preventDefault()
     var selectedCity = cityInput.value;
