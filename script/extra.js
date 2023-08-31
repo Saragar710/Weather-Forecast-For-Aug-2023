@@ -60,10 +60,11 @@
 //     }
 // }
 //css
-#forecastCard {
-    width: 25%;
-    margin: 10px 0 10px 0;
-    padding: 10px 10px;
+// #forecastCard {
+//     width: 25%;
+//     margin: 10px 0 10px 0;
+//     padding: 10px 10px;
+// }
     /* display: flex; */
     /* flex-direction: column;
     justify-content: space-around;

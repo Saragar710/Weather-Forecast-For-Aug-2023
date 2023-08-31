@@ -27,7 +27,7 @@ function getApi(city) {
         })
 }  
 
-var cityDataArray =[] 
+var cityDataArray = [];
 function getCityData(city) {
     console.log(city);
     
@@ -38,29 +38,31 @@ function getCityData(city) {
      .then(function (cityData){
         console.log(cityData[0]);
        
-        localStorage.setItem("cityData", JSON.stringify(cityData))
-     })
-     
-        getCityData();
-        localStorage.getItem("cityData")
-        // var cityDataArray = JSON.parse(cityData)
-        if(cityDataArray = JSON.parse(cityData)) {
-           console.log("Everything is good.")
-        }
-        cityDataArray();
+        localStorage.setItem("cityData", JSON.stringify(cityData));
+
+        cityDataArray = JSON.parse(localStorage.getItem("cityData"));
+         
+        console.log(cityDateArray);
+        if(cityDataArray  !== null) {
+            console.log("Everything is good.");
+         }
+     });
+    }    
+       
 function getWeatherData(){
    var weatherData = cityInput.value
-    var buttonEl = document.createElement("div")
-    buttonEl.setAttribute("class", "btn-history", "data-search", "array[i]")
+    var buttonEl = document.createElement("div");
+    buttonEl.setAttribute("class", "btn-history");
+    buttonEl.setAttribute("data-search", "array[i]");
     buttonEl.append(div);
-} 
+
 buttonEl.addEventListener("click", function () {
     event.preventDefault()
     console.log(weatherData)
-})
+});
     }
 
-
+getCityData();
 
 formButton.addEventListener("click", function () {
     event.preventDefault()
