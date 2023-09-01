@@ -54,8 +54,28 @@ getCityArray()
 
 //take array and iterate thru to display dynamically, creating button element
 function displayCityArray() {
-    
+    //create for loop
+   var cities = [];
+   for(let i = 0; i < 5; i++) {
+    cities.push(cities)
+   }
+    // for (let i = 0; i < cityArray.length; i++) {
+    //     const displayCityArray = cityarray [i];
+        
+    // }
+    //create button 
 }
+var buttonEl = document.getCreateElement("button")
+buttonEl.setAttribute("type","button")
+buttonEl.setAttribute("class","button-history")
+buttonEl.setAttribute("data-search", "array[0]")
+buttonEl.append("div")
+
+buttonEl.addEventListener("click", function () {
+    event.preventDefault()
+    console.log(weatherData)
+});
+    
 
 // function getCityData(city) {
 //     console.log(city);
@@ -84,19 +104,19 @@ function displayCityArray() {
 //     }
 //     cityData()
        
-function getWeatherData(){
-   var weatherData = cityInput.value
-    var buttonEl = document.createElement("button");
-    buttonEl.setAttribute("type","button")
-    buttonEl.setAttribute("class", "btn-history");
-    buttonEl.setAttribute("data-search", "array[i]");
-    buttonEl.append(div);
+// function getWeatherData(){
+//    var weatherData = cityInput.value
+//     var buttonEl = document.createElement("button");
+//     buttonEl.setAttribute("type","button")
+//     buttonEl.setAttribute("class", "btn-history");
+//     buttonEl.setAttribute("data-search", "array[i]");
+//     buttonEl.append(div);
 
-buttonEl.addEventListener("click", function () {
-    event.preventDefault()
-    console.log(weatherData)
-});
-    }
+// buttonEl.addEventListener("click", function () {
+//     event.preventDefault()
+//     console.log(weatherData)
+// });
+//     }
 
 // getCityData();
 
