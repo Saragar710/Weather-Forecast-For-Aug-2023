@@ -5,8 +5,8 @@ var cityInput = document.getElementById("city-name");
 var formButton = document.querySelector("form button");
 var currentWeatherDiv = document.querySelector(".current-weather");
 var weatherCardsDiv = document.querySelector(".weather-cards");
-
-
+var cityDataArray = [];
+//passes city input to get geo coordiantes (name, lat, lon)
 function getApi(city) {
     var queryUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${APIKey}
     `;
@@ -21,54 +21,84 @@ function getApi(city) {
         })
         .then(function (data) {
             console.log(data[0]);
+            //get weather
           getWeather(data[0])
-       
-           city(data);
+       //take city input to another function to send to local storage
+           cityHistory(city);
         })
 }  
-
-var cityDataArray = [];
-function getCityData(city) {
-    console.log(city);
+//send input of city to local storage
+function cityHistory(city) {
+    console.log(city)
+    cityDataArray.push(city)
     
-    fetch(city)
-     .then(function (response){
-        return response.json();
-     })
-     .then(function (cityData){
-        console.log(cityData[0]);
-       
-        localStorage.setItem("cityData", JSON.stringify(cityData));
+    //send to local storage
+    localStorage.setItem("cityData", JSON.stringify(cityDataArray))
+  //iterating / 4loop the array to create buttons to display
+  displayCityArray()
 
-        cityDataArray = JSON.parse(localStorage.getItem("cityData"));
-         
-        console.log(cityDateArray);
-        if(cityDataArray  !== null) {
-            console.log("Everything is good.");
-         }
-     });
-    }  
-      var cityData = document.getElementById("data-search")
-    for (let i = 0; i < cityData.length; i++) {
-        const localStorage.getitem = cityData[i];
-        
+}
+//getting array from location storage
+function getCityArray() {
+    var storedCity = localStorage.getItem('cityData')
+    if(storedCity){
+        cityDataArray = JSON.parse(storedCity)
     }
+    //iterating / 4loop the array to create buttons to display
+    displayCityData()
+}
+
+//invoke function to render persistent data independently
+getCityArray()
+
+
+//take array and iterate thru to display dynamically, creating button element
+function displayCityArray() {
+    
+}
+
+// function getCityData(city) {
+//     console.log(city);
+    
+//     fetch(city)
+//      .then(function (response){
+//         return response.json();
+//      })
+//      .then(function (cityData){
+//         console.log(cityData[0]);
+       
+//         localStorage.setItem("cityData", JSON.stringify(cityData));
+
+//         cityDataArray = JSON.parse(localStorage.getItem("cityData"));
+         
+//         console.log(cityDateArray);
+//         if(cityDataArray  !== null) {
+//             console.log("Everything is good.");
+//          }
+//      });
+//     }  
+//       var cityData = document.getElementById("data-search")
+//     for (let i = 0; i < cityData.length; i++) {
+//         const localStorage.getitem = cityData[i];
+        
+//     }
+//     cityData()
        
 function getWeatherData(){
    var weatherData = cityInput.value
-    var buttonEl = document.createElement("buttonEl");
+    var buttonEl = document.createElement("button");
     buttonEl.setAttribute("type","button")
     buttonEl.setAttribute("class", "btn-history");
     buttonEl.setAttribute("data-search", "array[i]");
     buttonEl.append(div);
 
-buttonEl.addEventListener("click", function (div) {
+buttonEl.addEventListener("click", function () {
     event.preventDefault()
     console.log(weatherData)
 });
     }
 
-getCityData();
+// getCityData();
 
 //  dataSearchBtn.addEventListener("click",  function()){
 //     if(!event.target.matches('.btn-history'))
