@@ -78,11 +78,11 @@ h1 {
 .current-weather h3 {
   font-size: 35px;
 }
-.current-weather h4 {
+/* .current-weather h4 {
     margin-top: 12px;
     font-size: 25px;
     font-weight: 500;
-}
+} */
 .current-weather .icon {
     text-align: center;
 }
