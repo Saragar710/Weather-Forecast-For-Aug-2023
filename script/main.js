@@ -76,7 +76,7 @@ function forecastDays(weather) {
             let forecast = weather[i];
 
             //pulling data creating variables
-            var icon = `https:://openforecastmap.org/imp/w/${forecast.weather[0].icon.png}`;
+            var icon = `https:://openforecastmap.org/img/w/${forecast.weather[0].icon.png}`;
             var iconAlt = forecast.weather[0].description;
             var temp = forecast.main.temp;
             var humidity =forecast.main.humidity;
