@@ -78,11 +78,7 @@ h1 {
 .current-weather h3 {
   font-size: 35px;
 }
-/* .current-weather h4 {
-    margin-top: 12px;
-    font-size: 25px;
-    font-weight: 500;
-} */
+
 .current-weather .icon {
     text-align: center;
 }
@@ -94,19 +90,10 @@ h1 {
     margin-top: -10px;
     text-transform: capitalize;
 }
-/* .days-forecast {
-    display: flex;
-    /* flex-direction: column;
-    justify-content: space-between;
-} */
+
 
 .row days-forecast h2 {
     font-size: 20px;
     margin: 20px 0;
    
-
-
-
-    /* justify-content: space-evenly; */
-
 }
