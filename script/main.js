@@ -8,6 +8,8 @@ var weatherCardsDiv = document.querySelector(".weather-cards");
 //global variables for the history
 var cityDataArray = [];
 var historyBtn = document.getElementById("history-btn")
+
+
 //passes city input to get geo coordiantes (name, lat, lon)
 function getApi(selectedCity) {
     var city = selectedCity;
@@ -69,7 +71,7 @@ function forecastDays(weather) {
     //iterate or 4 loop thru the wather arry (data.list(array))
     for (let i = 0; i < weather.length; i++) {
         //First filters through all of the data and returns only data that falls between ond day after the current data and up to 5 days later.
-        if(weather[i].dt >= startDt && weather[i].dt < endDt){
+        if(weather[i].dt >= startDt && weather[i].dt < endDt) {
         if (weather[i].dt_txt.slice(11, 13) == "12") {
             //to distinguish from the array, rename object of weather [i] to forecast - needs to be let and not const becasuse values are changed
             // for each data propery being pulled form api
@@ -167,7 +169,7 @@ function currentDay(city, weather) {
     imgIconEl.setAttribute("src", icon)
     imgIconEl.setAttribute("class", "altIcon")
     //loading all 'elements into the cardbody of the card
-    cardbody.append(title,imgIconEl, tempEl,windEl, humidityEl)
+    cardbody.append(title, imgIconEl, tempEl, windEl, humidityEl)
 
    
     //have to clear the conatiner in order for the new city weather can be displayed, or new search just adds onto old search results.
