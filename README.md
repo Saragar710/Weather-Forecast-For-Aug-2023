@@ -12,6 +12,11 @@ N/A
 ## Usage
 Simply open the app and type in  a city you want the weather for.
 
+
+https://saragar710.github.io/Weather-Forecast-For-Aug-2023/
+![Alt text](image.png)!
+[Alt text](image-1.png)
+
 ## Credits
 My amazing TA Sandra Smith really helped break things down for me and helped me understand all the aspects of coding.
 
